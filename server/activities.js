@@ -19,7 +19,7 @@ function addItem(req, res, next) {
         .then(function(result) {
             var balance = (result && result.points) ? result.points : 0;
 
-            db.query('INSERT INTO salesforce.interaction__c (loyaltyid__c, campaign__c, product__c, type__c, points__c, name__c, picture__c) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+            db.query('INSERT INTO salesforce.interaction__c (loyaltyid__c, campaign__c, product__c, type__c, points__c, name, picture__c) VALUES ($1, $2, $3, $4, $5, $6, $7)',
                     [userId, activity.offerId, activity.productId, activity.type, activity.points, activity.name, activity.image], true)
                 .then(function() {
                     res.send({originalBalance: balance, points: activity.points, newBalance: balance + activity.points, originalStatus: getStatus(balance), newStatus: getStatus(balance + activity.points)});
@@ -41,7 +41,7 @@ function getItems(req, res, next) {
     var externalUserId = req.externalUserId;
     console.log('external user id:' + externalUserId);
 
-    db.query("SELECT loyaltyid__c AS userId, campaign__c AS campaign, type__c AS type, name__c as name, picture__c as picture, points__c as points, createdDate FROM salesforce.interaction__c WHERE loyaltyid__c=$1 ORDER BY id DESC LIMIT 20", [externalUserId])
+    db.query("SELECT loyaltyid__c AS userId, campaign__c AS campaign, type__c AS type, name as name, picture__c as picture, points__c as points, createdDate FROM salesforce.interaction__c WHERE loyaltyid__c=$1 ORDER BY id DESC LIMIT 20", [externalUserId])
         .then(function (activities) {
             console.log(JSON.stringify(activities));
             return res.send(JSON.stringify(activities));
