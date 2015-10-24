@@ -36,5 +36,10 @@ angular.module('nibs.case', [])
                 $ionicPopup.alert({title: 'Thank You', content: 'A customer representative will contact you shortly.'});
             });
         };
+        
+        $scope.sos = function() {
+            var user = JSON.parse($window.localStorage.getItem('user'));
+            $window.location = 'sos://' + user.email;
+        };
 
     });
