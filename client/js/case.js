@@ -38,8 +38,10 @@ angular.module('nibs.case', [])
         };
         
         $scope.sos = function() {
+            alert('sos called start');
             var user = JSON.parse($window.localStorage.getItem('user'));
             $window.location = 'sos://' + user.email;
+            alert('sos called end');
         };
 
     });
