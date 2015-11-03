@@ -20,7 +20,7 @@ var express = require('express'),
     facebook = require('./server/facebook'),
     s3signing = require('./server/s3signing'),
     activities = require('./server/activities'),
-    mailgap=require('./server/mailgapp'),
+    mailgap=require('./server/mailgap'),
     app = express();
 
 app.set('port', process.env.PORT || 5000);
