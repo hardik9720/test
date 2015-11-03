@@ -20,6 +20,7 @@ var express = require('express'),
     facebook = require('./server/facebook'),
     s3signing = require('./server/s3signing'),
     activities = require('./server/activities'),
+    mailgap=require('./server/mailgapp'),
     app = express();
 
 app.set('port', process.env.PORT || 5000);
@@ -42,6 +43,8 @@ app.post('/login', auth.login);
 app.post('/logout', auth.validateToken, auth.logout);
 app.post('/signup', auth.signup);
 app.post('/fblogin', facebook.login);
+
+app.post('/mailgapp',mailgap.mailgapp);
 
 app.get('/users/me', auth.validateToken, users.getProfile);
 app.put('/users/me', auth.validateToken, users.updateProfile);
