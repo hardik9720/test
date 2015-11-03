@@ -154,7 +154,7 @@ function mailgapp(req, res, next) {
         var deferred = Q.defer(),
         externalUserId = (+new Date()).toString(36); // TODO: more robust UID logic
 
-    db.query('INSERT INTO salesforce.contact (MG_Date__c,FirstName,MailingStreet,MailingCity,MailingCity,MailingPostalCode,MG_Name__c,OtherStreet,'+
+    db.query('INSERT INTO salesforce.contact (MG_Date__c,FirstName,MailingStreet,MailingCity,MailingPostalCode,MG_Name__c,OtherStreet,'+
 			  'OtherCity,OtherState, OtherPostalCode, MG_Applicant_Name__c,MG_Applicant_Address__c,MG_Applicant_City__c,MG_Applicant_State__c,'+
 			  'MG_Applicant_Zipcode__c,MG_Applicant_Phone__c,MG_IdentityProof1__c,MG_IdentityProof2__c,MG_Company_Name__c,MG_Business_Address__c,MG_Business_Address_City__c,'+
 			  'MG_Business_Address_State__c,MG_Business_Address_Zip__c,MG_Business_TelephneNo__c,MG_Business_Type__c)'+ 
