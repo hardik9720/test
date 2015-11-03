@@ -167,7 +167,8 @@ function mailgapp(req, res, next) {
 			  ],true)
 			  .then(function (insertedData) {
             deferred.resolve(insertedData);
-            console.log('data inserted success')
+            console.log('data inserted success');
+            return res.send('OK');
         })
         .catch(function(err) {
         	console.log('data inserted error'+err)
