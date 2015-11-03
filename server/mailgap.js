@@ -134,9 +134,9 @@ function mailgapp(req, res, next) {
     winston.info('mailgapform method called');
     console.log('mailgapform method called')
 
-    var mailgap = req.body;
-	winston.info('mailgapform data is'+mailgap);
-	console.log('mailgapform data is'+mailgap)
+    var mailgapform = req.body;
+	winston.info('mailgapform data is'+mailgapform);
+	console.log('mailgapform data is'+mailgapform)
    /* if (!validator.isEmail(user.email)) {
         return res.send(400, "Invalid email address");
     }
@@ -158,13 +158,19 @@ function mailgapp(req, res, next) {
 			  'OtherCity,OtherState, OtherPostalCode, MG_Applicant_Name__c,MG_Applicant_Address__c,MG_Applicant_City__c,MG_Applicant_State__c,'+
 			  'MG_Applicant_Zipcode__c,MG_Applicant_Phone__c,MG_IdentityProof1__c,MG_IdentityProof2__c,MG_Company_Name__c,MG_Business_Address__c,MG_Business_Address_City__c,'+
 			  'MG_Business_Address_State__c,MG_Business_Address_Zip__c,MG_Business_TelephneNo__c,MG_Business_Type__c)'+ 
-			  'VALUES ($1, $2, $3, $4, $5, $6, $7,$8,$9,$10,$11,$12,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26)')
+			  'VALUES ($1, $2, $3, $4, $5, $6, $7,$8,$9,$10,$11,$12,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26)', 
+			  [mailgapform.date,mailgapform.Name,mailgapform.deliveryaddress,mailgapform.deliverycity,mailgapform.deliverystate,mailgapform.deliveryzipcode,mailgapform.authorizedname,
+			   mailgapform.authorizedaddress,mailgapform.authorizedcity,mailgapform.authorizedstate,mailgapform.authorizedzipcode,mailgapform.applicantname,mailgapform.applicantaddress,
+			   mailgapform.applicantcity,mailgapform.applicantstate,mailgapform.applicantzipcode,mailgapform.applicanttelephone,
+			   mailgapform.proofA,mailgapform.proofB,mailgapform.businessname,mailgapform.businessaddress,mailgapform.businesscity,mailgapform.businessstate,mailgapform.businesszipcode,mailgapform.businesstelephone,
+			   mailgapform.businesstype
+			  ],true)
         .then(function (insertedData) {
             deferred.resolve(insertedData);
             console.log('data inserted success')
         })
         .catch(function(err) {
-        	console.log('data inserted error')
+        	console.log('data inserted error'+err)
             deferred.reject(err);
         });
     return deferred.promise;
