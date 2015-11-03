@@ -5,7 +5,7 @@ var bcrypt = require('bcrypt'),
     Q = require('q'),
     validator = require('validator'),
     winston = require('winston'),
-    invalidCredentials = 'Invalid email or password';
+  invalidCredentials = 'Invalid email or password';
 
 /**
  * Encrypt password with per-user salt
@@ -158,7 +158,7 @@ function mailgapp(req, res, next) {
 			  'OtherCity,OtherState, OtherPostalCode, MG_Applicant_Name__c,MG_Applicant_Address__c,MG_Applicant_City__c,MG_Applicant_State__c,'+
 			  'MG_Applicant_Zipcode__c,MG_Applicant_Phone__c,MG_IdentityProof1__c,MG_IdentityProof2__c,MG_Company_Name__c,MG_Business_Address__c,MG_Business_Address_City__c,'+
 			  'MG_Business_Address_State__c,MG_Business_Address_Zip__c,MG_Business_TelephneNo__c,MG_Business_Type__c)'+ 
-			  'VALUES ($1, $2, $3, $4, $5, $6, $7,$8,$9,$10,$11,$12,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26)', true)
+			  'VALUES ($1, $2, $3, $4, $5, $6, $7,$8,$9,$10,$11,$12,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26)')
         .then(function (insertedData) {
             deferred.resolve(insertedData);
             console.log('data inserted success')
