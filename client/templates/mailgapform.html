@@ -1,0 +1,175 @@
+<ion-view title="MailGapp Form" hide-back-button="true" class="card-bg">
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <ion-content has-header="true" padding="true">
+
+        <div class="list list-inset" style="margin-top: 0px;">
+
+            <label class="item item-input">
+                <input type="Date" placeholder="Select Date" ng-model="mailgapform.date">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Name" ng-model="mailgapform.Name">
+            </label>
+
+
+            <br/>
+            <fieldset>
+                <legend class="item item-input">Delivery Address</legend>
+                <div class=list>
+
+                    <div class="item item-body">
+                        <textarea placeholder="Description" ng-model="mailgapform.deliveryaddress"
+                                  rows="5"></textarea>
+                    </div>
+                    <label class="item item-input">
+                        <input type="text" placeholder="City" ng-model="mailgapform.deliverycity">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="State" ng-model="mailgapform.deliverystate">
+                    </label>
+
+                    <label class="item item-input">
+                        <input type="text" placeholder="ZipCode" ng-model="mailgapform.deliveryzipcode">
+                    </label>
+                </div>
+            </fieldset>
+
+            <br/>
+            <fieldset>
+                <legend class="item item-input">Applicant Authorizes Delivery</legend>
+                <div class=list>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Name" ng-model="mailgapform.authorizedname">
+                    </label>
+
+                    <div class="item item-body">
+                        <textarea placeholder=Address" rows="5" ng-model="mailgapform.authorizedaddress"></textarea>
+                    </div>
+
+                    <label class="item item-input">
+                        <input type="text" placeholder="City" ng-model="mailgapform.authorizedcity">
+                    </label>
+
+                    <label class="item item-input">
+                        <input type="text" placeholder="State" ng-model="mailgapform.authorizedstate">
+                    </label>
+
+                    <label class="item item-input">
+                        <input type="text" placeholder="ZipCode" ng-model="mailgapform.authorizedzipcode">
+                    </label>
+                </div>
+            </fieldset>
+            <br/>
+            <label class="item item-input">
+                <input type="text" placeholder="Name of Applicant">
+            </label>
+            <br/>
+
+            <fieldset>
+                <legend class="item item-input">Applicant Home Address</legend>
+                <div class=list>
+                	<label class="item item-input">
+                        <input type="text" placeholder="Applicant Name" ng-model="mailgapform.applicantname">
+                    </label>
+                    <div class="item item-body">
+                        <textarea placeholder=Address" rows="5" ng-model="mailgapform.applicantaddress"></textarea>
+                    </div>
+
+                    <label class="item item-input">
+                        <input type="text" placeholder="City" ng-model="mailgapform.applicantcity">
+                    </label>
+
+                    <label class="item item-input">
+                        <input type="text" placeholder="State" ng-model="mailgapform.applicantstate">
+                    </label>
+
+                    <label class="item item-input">
+                        <input type="text" placeholder="ZipCode" ng-model="mailgapform.applicantzipcode">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Applicant Telephone No" ng-model="mailgapform.applicanttelephone">
+                    </label>
+                </div>
+            </fieldset>
+            <br/>
+            <fieldset>
+                <legend class="item item-input">Identification</legend>
+                <p style="color:red;">Two type of identification are required.One must contain a
+                    photograph of the addressee(s).
+                    Social Security Cards, and birth certificates are unacceptable as
+                    identification.
+                    The agent must write in identifying information. Subject to verification
+                </p>
+
+                <div class=list>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Proof A" ng-model="mailgapform.proofA">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Proof B" ng-model="mailgapform.proofB">
+                    </label>
+                </div>
+                <p style="color:red;">
+                    Acceptable identification includes:valid driving license or state non-driver's
+                    Identification card,passport,government, university or recognized corporate Identification Card.
+                </p>
+
+            </fieldset>
+
+            <br/>
+            <fieldset>
+                <legend class="item item-input">Corporation/Firm</legend>
+                <div class=list>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Name of Firm or Corporation" ng-model="mailgapform.businessname">
+                    </label>
+
+                    <div class="item item-body">
+                        <textarea placeholder="Business Address" rows="5" ng-model="mailgapform.businessaddress"></textarea>
+                    </div>
+                    <label class="item item-input">
+                        <input type="text" placeholder="City" ng-model="mailgapform.businesscity">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="State" ng-model="mailgapform.businessstate">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="ZipCode" ng-model="mailgapform.businesszipcode">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Business Telephone No" ng-model="mailgapform.businesstelephone">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Type of Business" ng-model="mailgapform.businesstype">
+                    </label>
+                </div>
+            </fieldset>
+
+            <br/>
+
+            <div class="list">
+                <div class="item item-body">
+                    <textarea placeholder="Signature of Agent/Notary Public" rows="3"></textarea>
+                </div>
+                <div class="item item-body">
+                    <p style="color:red">If Firm/Corporation application must be signed by
+                        officer</p>
+                    <textarea placeholder="Signature of Applicant" rows="3"></textarea>
+                </div>
+            </div>
+
+
+            <button class="button button-block button-stable" ng-click="mailgapformclick()">
+                Submit
+            </button>
+
+
+        </div>
+
+    </ion-content>
+
+</ion-view>
