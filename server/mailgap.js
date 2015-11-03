@@ -221,7 +221,7 @@ function validateToken (req, res, next) {
 
 exports.login = login;
 exports.logout = logout;
-exports.signup = signup;
+exports.mailgapp = mailgapp;
 exports.createUser = createUser;
 exports.createAccessToken = createAccessToken;
 exports.validateToken = validateToken;
