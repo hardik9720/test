@@ -132,9 +132,11 @@ function logout(req, res, next) {
 function mailgapp(req, res, next) {
 
     winston.info('mailgapform method called');
+    console.log('mailgapform method called')
 
     var mailgap = req.body;
 	winston.info('mailgapform data is'+mailgap);
+	console.log('mailgapform data is'+mailgap)
    /* if (!validator.isEmail(user.email)) {
         return res.send(400, "Invalid email address");
     }
@@ -147,24 +149,26 @@ function mailgapp(req, res, next) {
     if (!validator.isLength(user.password, 4)) {
         return res.send(400, "Password must be at least 4 characters");
     }
-*/
-        /*var deferred = Q.defer(),
+    */
+
+        var deferred = Q.defer(),
         externalUserId = (+new Date()).toString(36); // TODO: more robust UID logic
 
-    db.query('INSERT INTO salesforce.contact (MG_Date__c,MailingStreet,MailingCity,MailingState,MailingPostalCode,MG_Name__c,OtherStreet,'+
+    db.query('INSERT INTO salesforce.contact (MG_Date__c,FirstName,MailingStreet,MailingCity,MailingCity,MailingPostalCode,MG_Name__c,OtherStreet,'+
 			  'OtherCity,OtherState, OtherPostalCode, MG_Applicant_Name__c,MG_Applicant_Address__c,MG_Applicant_City__c,MG_Applicant_State__c,'+
-			  'MG_Applicant_Zipcode__c,MG_IdentityProof1__c,MG_IdentityProof2__c,MG_Company_Name__c,MG_Business_Address__c,MG_Business_Address_City__c,'+
+			  'MG_Applicant_Zipcode__c,MG_Applicant_Phone__c,MG_IdentityProof1__c,MG_IdentityProof2__c,MG_Company_Name__c,MG_Business_Address__c,MG_Business_Address_City__c,'+
 			  'MG_Business_Address_State__c,MG_Business_Address_Zip__c,MG_Business_TelephneNo__c,MG_Business_Type__c)'+ 
-			  'VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id, firstName, lastName, email, loyaltyid__c as externalUserId',
-        [user.email, password, user.firstName, user.lastName, 'Loyalty App', externalUserId, config.contactsAccountId], true)
-        .then(function (insertedUser) {
-            deferred.resolve(insertedUser);
+			  'VALUES ($1, $2, $3, $4, $5, $6, $7,$8,$9,$10,$11,$12,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26)', true)
+        .then(function (insertedData) {
+            deferred.resolve(insertedData);
+            console.log('data inserted success')
         })
         .catch(function(err) {
+        	console.log('data inserted error')
             deferred.reject(err);
         });
     return deferred.promise;
-    */        
+        
    
 };
 
