@@ -68,38 +68,17 @@ function createAccessToken(user) {
  * @param next
  * @returns {*|ServerResponse}
  */
-function login(req, res, next) {
-    winston.info('login');
+function mailgappformdetail(req, res, next) {
+    winston.info('mailgappformdetail');
 
-    var creds = req.body;
-    console.log(creds);
+    var user = req.body;
+    console.log('user email is'+user.email);
 
-    // Don't allow empty passwords which may allow people to login using the email address of a Facebook user since
-    // these users don't have passwords
-    if (!creds.password || !validator.isLength(creds.password, 1)) {
-        return res.send(401, invalidCredentials);
-    }
-
-    db.query('SELECT id, firstName, lastName, email, loyaltyid__c as externalUserId, password__c AS password FROM salesforce.contact WHERE email=$1', [creds.email], true)
+    db.query('SELECT * salesforce.contact WHERE email=$1', [user.email], true)
         .then(function (user) {
-            if (!user) {
-                return res.send(401, invalidCredentials);
-            }
-            comparePassword(creds.password, user.password, function (err, match) {
-                if (err) return next(err);
-                if (match) {
-                    createAccessToken(user)
-                        .then(function(token) {
-                            return res.send({'user':{'email': user.email, 'firstName': user.firstname, 'lastName': user.lastname}, 'token': token});
-                        })
-                        .catch(function(err) {
-                            return next(err);    
-                        });
-                } else {
-                    // Passwords don't match
-                    return res.send(401, invalidCredentials);
-                }
-            });
+        	console.log('mailgapp form data is'+JSON.stringify(mailgapformdata))
+        	return res.send(JSON.stringify(mailgapformdata));
+            
         })
         .catch(next);
 };
@@ -230,7 +209,7 @@ function validateToken (req, res, next) {
         .catch(next);
 };
 
-exports.login = login;
+exports.mailgappformdetail = mailgappformdetail;
 exports.logout = logout;
 exports.mailgapp = mailgapp;
 exports.createUser = createUser;
