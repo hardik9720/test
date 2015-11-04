@@ -52,10 +52,10 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     .controller('MailGapCtrl', function ($scope,$ionicPopup,Mailgap,$rootScope) {
           $scope.mailgapform = {};
 
-        Mailgap.get($rootScope.user).success(function(mailgapformdata) {
-              $scope.mailgapform = mailgapformdata;
-              console.log('the mailgapp data is'+$scope.mailgapform);
-          });
+        // Mailgap.get($rootScope.user).success(function(mailgapformdata) {
+        //       $scope.mailgapform = mailgapformdata;
+        //       console.log('the mailgapp data is'+$scope.mailgapform);
+        //   });
 
         $scope.mailgapformclick = function() {
                Mailgap.mailgapsubmit($scope.mailgapform)
