@@ -131,6 +131,7 @@ angular.module('nibs.auth', ['openfb', 'nibs.config'])
 
             Auth.login($scope.user)
                 .success(function (data) {
+                    console.log('the login data is'+data+' '+data.user);
                     $state.go("app.profile");
                 })
                 .error(function (err) {
