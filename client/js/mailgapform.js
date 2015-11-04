@@ -29,37 +29,25 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
 
     // REST resource for access to Products data
     
-    .factory('User', function ($http, $rootScope) {
-        return {
-            get: function () {
-                return $http.get($rootScope.server.url + '/users/me', null)
-            }
-        };
-
-    })
-    
     .factory('Mailgap', function ($http, $rootScope) {
         return {
             mailgapsubmit: function(mailgappform) {
                 return $http.post($rootScope.server.url + '/mailgapp',mailgappform);
             },
-            get:function(user){
-            	return $http.get($rootScope.server.url + '/mailgappformdetail',user);
+            get:function(){
+            	return $http.get($rootScope.server.url + '/mailgappformdetail',$rootScope.user);
             	
             }
+
         };
     })
     
     
+    
     .controller('MailGapDetailCtrl',function($scope,$ionicPopup,Mailgap,User,$rootScope){
-    	alert('the user data before is'+$rootScope.user+' '+$rootScope.user.email);
-    	User.get().success(function(user) {
-            $rootScope.user = user;
-            
-        });
-    	alert('the user data is'+$rootScope.user);
+    	alert('the user data before is'+$rootScope.user+" "+$rootScope.user.email);
     	alert('mail gap detail controller called');
-    	Mailgap.get($rootScope.user).success(function(mailgapformdata) {
+    	Mailgap.get().success(function(mailgapformdata) {
             $scope.mailgapform = mailgapformdata;
             console.log('the mailgapp data is'+$scope.mailgapform+" "+mailgapformdata);
         });
