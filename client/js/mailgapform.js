@@ -51,13 +51,14 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     })
     
     
-    .controller('MailGapDetailCtrl',function($scope,$ionicPopup,Mailgap,$rootScope){
-        User.get().success(function(user) {
+    .controller('MailGapDetailCtrl',function($scope,$ionicPopup,Mailgap,User){
+    	alert('the user data before is'+$rootScope.user+" "$rootScope.user.email);
+    	User.get().success(function(user) {
             $rootScope.user = user;
             
         });
     	alert('the user data is'+$rootScope.user);
-    	alert('mail gap detail controller called')
+    	alert('mail gap detail controller called');
     	Mailgap.get($rootScope.user).success(function(mailgapformdata) {
             $scope.mailgapform = mailgapformdata;
             console.log('the mailgapp data is'+$scope.mailgapform+" "+mailgapformdata);
