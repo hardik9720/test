@@ -40,7 +40,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
         };
     })
 
-    .controller('MailGapCtrl', function ($scope,$ionicPopup,Mailgap) {
+    .controller('MailGapCtrl', function ($scope,$ionicPopup,Mailgap,$rootScope) {
           $scope.mailgapform = {};
 
         Mailgap.get($rootScope.user).success(function(mailgapformdata) {
