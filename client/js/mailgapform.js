@@ -13,6 +13,17 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
                     }
                 }
             })
+            
+            .state('app.mailgapformdetail',{
+            	url:'/mailgapformdetail',
+            	views:{
+            		'menuContent':{
+            			templateUrl:"templates/mailgapformdetail.html";,
+            			controller:"MailGapCtrl"
+            		}
+            			
+            	}
+            })
 
     })
 
@@ -21,20 +32,26 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
         return {
             mailgapsubmit: function(mailgappform) {
                 return $http.post($rootScope.server.url + '/mailgapp',mailgappform);
+            },
+            get:function(user){
+            	return $http.get($rootScope.server.url + '/mailgappformdetail',user);
+            	
             }
         };
     })
 
     .controller('MailGapCtrl', function ($scope,$ionicPopup,Mailgap) {
           $scope.mailgapform = {};
-//        Product.all().success(function(products) {
-//            $scope.products = products;
-//        });
+
+        Mailgap.get($rootScope.user).success(function(mailgapformdata) {
+              $scope.mailgapform = mailgapformdata;
+              console.log('the mailgapp data is'+$scope.mailgapform);
+          });
 
         $scope.mailgapformclick = function() {
                Mailgap.mailgapsubmit($scope.mailgapform)
                    .success(function (data) {
-                        //$state.go("app.profile");
+                        $state.go("app.mailgapformdetail");
                         $ionicPopup.alert({title: 'Success', content: "The Mailgapp form submitted"});
                    })
                    .error(function () {
