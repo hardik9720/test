@@ -51,8 +51,8 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
         $scope.mailgapformclick = function() {
                Mailgap.mailgapsubmit($scope.mailgapform)
                    .success(function (data) {
-                        $state.go("app.mailgapformdetail");
                         $ionicPopup.alert({title: 'Success', content: "The Mailgapp form submitted"});
+                        $state.go("app.mailgapformdetail");
                    })
                    .error(function () {
                          $ionicPopup.alert({title: 'Oops', content: 'There is some error'});
