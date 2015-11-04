@@ -19,7 +19,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             	views:{
             		'menuContent':{
             			templateUrl:"templates/mailgapformdetail.html",
-            			controller:"MailGapCtrl"
+            			controller:"MailGapDetailCtrl"
             		}
             			
             	}
@@ -38,6 +38,15 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             	
             }
         };
+    })
+    
+    
+    .controller('MailGapDetailCtrl',function($scope,$ionicPopup,Mailgap,$rootScope){
+    	alert('mail gap detail controller called')
+    	Mailgap.get($rootScope.user).success(function(mailgapformdata) {
+            $scope.mailgapform = mailgapformdata;
+            console.log('the mailgapp data is'+$scope.mailgapform);
+        });
     })
 
     .controller('MailGapCtrl', function ($scope,$ionicPopup,Mailgap,$rootScope) {
