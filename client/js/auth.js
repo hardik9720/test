@@ -186,6 +186,7 @@ angular.module('nibs.auth', ['openfb', 'nibs.config'])
             }
             Auth.signup($scope.user)
                 .success(function (data) {
+                    console.log('data is'+data);
                     $state.go("app.login");
                 });
         };
