@@ -74,7 +74,7 @@ function mailgappformdetail(req, res, next) {
     var user = req.body;
     console.log('user email is'+user.email);
 
-    db.query('SELECT * salesforce.contact WHERE email=$1', [user.email], true)
+    db.query('SELECT * salesforce.contact WHERE email=$1 LIMIT 1', [user.email], true)
         .then(function (user) {
         	console.log('mailgapp form data is'+JSON.stringify(mailgapformdata))
         	return res.send(JSON.stringify(mailgapformdata));
