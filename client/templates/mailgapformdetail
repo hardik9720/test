@@ -1,0 +1,12 @@
+<ion-view title="MailGapp Form Detail" hide-back-button="true" class="card-bg">
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+<div ng-if="mailgapform.id">
+    <ion-content has-header="true" padding="true">
+    	Form data found
+	</ion-content>
+</div>
+<div ng-if="mailgapform.id != ''"><p> No Data Found</p></div>
+</ion-view>
