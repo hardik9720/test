@@ -69,7 +69,8 @@ function createAccessToken(user) {
  * @returns {*|ServerResponse}
  */
 function mailgappformdetail(req, res, next) {
-    var user = req.body
+    var user = req.body;
+     winston.info('mailgappformdetail post'+user.email);
     getmailgappformdetail(user.email)
         .then(function (mailgapformdata) {
         	winston.info('mailgappformdetail data returned '+JSON.stringify(mailgapformdata));
