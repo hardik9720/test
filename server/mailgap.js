@@ -69,19 +69,29 @@ function createAccessToken(user) {
  * @returns {*|ServerResponse}
  */
 function mailgappformdetail(req, res, next) {
-    winston.info('mailgappformdetail');
-
-    var user = req.body;
-    console.log('user email is'+user.email);
-	winston.info('user email is'+user.email);
-    db.query('SELECT * from salesforce.contact WHERE email=$1 LIMIT 1', [user.email],true, true)
+    var user = req.body
+    getmailgappformdetail(user.email)
         .then(function (mailgapformdata) {
-        	console.log('mailgapp form data is'+JSON.stringify(mailgapformdata));
-        	winston.info('mailgapp form data is'+JSON.stringify(mailgapformdata));
-        	return res.send(JSON.stringify(mailgapformdata));
-            
+        	winston.info('mailgappformdetail data returned '+JSON.stringify(mailgapformdata));
+            return res.send(JSON.stringify(mailgapformdata));
         })
         .catch(next);
+};
+
+function getmailgappformdetail(email) {
+    winston.info('mailgappformdetail');
+
+    console.log('user email is'+email);
+    winston.info('mailgappformdetail user email'+email);
+    return db.query('SELECT * from salesforce.contact WHERE email=$1 LIMIT 1', [email]);
+//    db.query('SELECT * from salesforce.contact WHERE email=$1 LIMIT 1', [email],true, true)
+//        .then(function (mailgapformdata) {
+//        	console.log('mailgapp form data is'+JSON.stringify(mailgapformdata))
+//        	winston.info('mailgappformdetail data returned '+JSON.stringify(mailgapformdata));
+//        	return res.send(JSON.stringify(mailgapformdata));
+//            
+//        })
+//        .catch(next);
 };
 
 /**
