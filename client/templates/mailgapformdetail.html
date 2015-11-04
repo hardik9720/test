@@ -3,13 +3,13 @@
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
-<div ng-if="mailgapform.id">
+<div ng-if="mailgap.id">
     <ion-content has-header="true" padding="true">
     	Form data found
 	</ion-content>
 </div>
 
-<div ng-if="mailgapform.id == ''">
+<div ng-if="mailgap.id == ''">
 	<ion-content has-header="true" padding="true">
     	No Form data found
 	</ion-content>
@@ -17,7 +17,7 @@
 
 <div>
 	<ion-content has-header="true" padding="true">
-		{{mailgapform.id}}
+	{{mailgap.id}}
 		Error in gettnig data
 	</ion-content>
 </div>
