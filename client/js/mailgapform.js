@@ -18,7 +18,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             	url:'/mailgapformdetail',
             	views:{
             		'menuContent':{
-            			templateUrl:"templates/mailgapformdetail.html";,
+            			templateUrl:"templates/mailgapformdetail.html",
             			controller:"MailGapCtrl"
             		}
             			
