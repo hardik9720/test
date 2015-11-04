@@ -49,7 +49,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     	alert('mail gap detail controller called');
     	Mailgap.get().success(function(mailgapformdata) {
             $scope.mailgap = mailgapformdata;
-            console.log('the mailgapp data is'+$scope.mailgap.id+" "+mailgapformdata);
+            console.log('the mailgapp data is'+$scope.mailgap.id+" "+mailgapformdata+" "+mailgapformdata.id);
         });
     })
 
