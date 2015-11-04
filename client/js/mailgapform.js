@@ -35,7 +35,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
                 return $http.post($rootScope.server.url + '/mailgapp',mailgappform);
             },
             get:function(){
-            	return $http.get($rootScope.server.url + '/mailgappformdetail',$rootScope.user);
+            	return $http.post($rootScope.server.url + '/mailgappformdetail',$rootScope.user);
             	
             }
 
