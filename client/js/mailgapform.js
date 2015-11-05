@@ -52,12 +52,11 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
         	
         $scope.download=function(){
     		
-    		var doc = new jsPDF();
-            
-    	doc.fromHTML($('#content').html(), 15, 15, {
+    	var doc = new jsPDF();
+        doc.fromHTML($('.form').html(), 15, 15, {
             'width': 170
         });
-            doc.save('mailgapp.pdf');
+        doc.save('mailgapp.pdf');
     		    
     	}
     })
