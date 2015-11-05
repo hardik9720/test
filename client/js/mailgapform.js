@@ -50,37 +50,12 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             console.log('the mailgapp data is'+$scope.mailgap+" "+mailgapformdata+" "+$scope.mailgap.id);
         });
         
-        $scope.download=function(){
-    		
-//    		var doc = new jsPDF();
-//            
-//    		alert('html is '+$('#form').html());
-//    		//doc.fromHTML($('#form').html(), 15, 15, {
-//    		doc.addHTML($('#form').html(), 15, 15, {
-//                'width': 170
-//                
-//            });
-//            doc.save('sample-file.pdf');
-    		
-//    		var pdf = new jsPDF('l', 'pt', 'a4');
-//    		 var options = {
-//    		    pagesplit: true
-//    		};
-//
-//    		pdf.addHTML($('#form').html(), 0, 0, options, function(){
-//    			console.log('download method called');
-//    		    pdf.save("test.pdf");
-//    		});
-    		
-    		var 
+        var 
     		form = $('.form'),
     		cache_width = form.width(),
     		a4  =[ 595.28,  841.89];  // for a4 size paper width and height
     		$('form').scrollTop(0);
     		
-    		createPDF();
-    		
-    		//create pdf
     		function createPDF(){
     			getCanvas().then(function(canvas){
     				var 
@@ -104,6 +79,35 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     		    	removeContainer:true
     		    });	
     		}
+    		
+        $scope.download=function(){
+    		
+//    		var doc = new jsPDF();
+//            
+//    		alert('html is '+$('#form').html());
+//    		//doc.fromHTML($('#form').html(), 15, 15, {
+//    		doc.addHTML($('#form').html(), 15, 15, {
+//                'width': 170
+//                
+//            });
+//            doc.save('sample-file.pdf');
+    		
+//    		var pdf = new jsPDF('l', 'pt', 'a4');
+//    		 var options = {
+//    		    pagesplit: true
+//    		};
+//
+//    		pdf.addHTML($('#form').html(), 0, 0, options, function(){
+//    			console.log('download method called');
+//    		    pdf.save("test.pdf");
+//    		});
+    		
+    		
+    		
+    		createPDF();
+    		
+    		//create pdf
+    		
     		
     	}
     })
