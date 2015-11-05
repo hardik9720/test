@@ -44,9 +44,9 @@ angular.module('nibs.profile', ['nibs.s3uploader', 'nibs.config', 'nibs.status']
     .factory('Preference', function() {
 
         var preferences = [
-            { text: 'Dark', value: 'Dark' },
-            { text: 'Milk', value: 'Milk' },
-            { text: 'White', value: 'White' }
+            { text: 'Shred', value: 'Shred' },
+            { text: 'Open/Scan', value: 'Open/Scan' },
+            { text: 'Fwd', value: 'Fwd' }
         ];
 
         return {
@@ -59,10 +59,10 @@ angular.module('nibs.profile', ['nibs.s3uploader', 'nibs.config', 'nibs.status']
     .factory('Size', function() {
 
         var sizes = [
-            { text: 'Small', value: 'Small' },
-            { text: 'Medium', value: 'Medium' },
-            { text: 'Large', value: 'Large' },
-            { text: 'X-Large', value: 'X-Large' }
+            { text: 'USPS', value: 'USPS' },
+            { text: 'FedEx', value: 'FedEx' },
+            { text: 'UPS', value: 'UPS' },
+            { text: 'Courier', value: 'Courier' }
         ];
 
         return {
