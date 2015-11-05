@@ -62,15 +62,48 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
 //            });
 //            doc.save('sample-file.pdf');
     		
-    		var pdf = new jsPDF('l', 'pt', 'a4');
-    		 var options = {
-    		    pagesplit: true
-    		};
+//    		var pdf = new jsPDF('l', 'pt', 'a4');
+//    		 var options = {
+//    		    pagesplit: true
+//    		};
+//
+//    		pdf.addHTML($('#form').html(), 0, 0, options, function(){
+//    			console.log('download method called');
+//    		    pdf.save("test.pdf");
+//    		});
+    		
+    		var 
+    		form = $('.form'),
+    		cache_width = form.width(),
+    		a4  =[ 595.28,  841.89];  // for a4 size paper width and height
+    		$('form').scrollTop(0);
+    		console.log('download method called');
+    		createPDF();
+    		
+    		//create pdf
+    		function createPDF(){
+    			getCanvas().then(function(canvas){
+    				var 
+    				img = canvas.toDataURL("image/png"),
+    				doc = new jsPDF({
+    		          unit:'px', 
+    		          format:'a4'
+    		        });     
+    		        doc.addImage(img, 'JPEG', 20, 20);
+    		        doc.save('techumber-html-to-pdf.pdf');
+    		        form.width(cache_width);
+    			});
+    		}
 
-    		pdf.addHTML($('#form').html(), 0, 0, options, function(){
-    			console.log('download method called');
-    		    pdf.save("test.pdf");
-    		});
+    		// create canvas object
+    		function getCanvas(){
+    			form.width((a4[0]*1.33333) -80).css('max-width','none');
+    			return html2canvas(form,{
+    		    	imageTimeout:2000,
+    		    	removeContainer:true
+    		    });	
+    		}
+    		
     	}
     })
 
