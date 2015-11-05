@@ -6,7 +6,7 @@
 <div ng-if="mailgap.id">
     <ion-content has-header="true" padding="true">
 		
-		
+		<form class="form">
         
         <table style="width:100%">
 		  <tr>
@@ -21,7 +21,15 @@
 		</table>
         
         
-        
+        <div class="list list-inset" style="margin-top: 0px;">
+
+            
+            <button class="button button-block button-stable" ng-click="download()">
+                Download
+            </button>
+
+        </div>
+	</form>
     </ion-content>
     
     </div>
