@@ -45,12 +45,45 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     
     
     .controller('MailGapDetailCtrl',function($scope,$ionicPopup,Mailgap,User,$rootScope){
-    	alert('the user data before is'+$rootScope.user+" "+$rootScope.user.email);
-    	alert('mail gap detail controller called');
     	Mailgap.get().success(function(mailgapformdata) {
             $scope.mailgap = mailgapformdata[0];
             console.log('the mailgapp data is'+$scope.mailgap+" "+mailgapformdata+" "+$scope.mailgap.id);
         });
+        
+        $scope.download=function(){
+    		console.log('download method called');
+    		var 
+    		form = document.getElementById('form'),
+    		cache_width = form.width(),
+    		a4  =[ 595.28,  841.89];  // for a4 size paper width and height
+    		createPDF();
+    	}
+    	
+    	//create pdf
+    	function createPDF(){
+    		console.log('create PDF called');
+    		getCanvas().then(function(canvas){
+    			var 
+    			img = canvas.toDataURL("image/png"),
+    			doc = new jsPDF({
+    	          unit:'px', 
+    	          format:'a4'
+    	        });     
+    	        doc.addImage(img, 'JPEG', 20, 20);
+    	        doc.save('Mailgappform.pdf');
+    	        form.width(cache_width);
+    		});
+    	}
+
+    	// create canvas object
+    	function getCanvas(){
+    		console.log('canvas method called');
+    		form.width((a4[0]*1.33333) -80).css('max-width','none');
+    		return html2canvas(form,{
+    	    	imageTimeout:2000,
+    	    	removeContainer:true
+    	    });	
+    	}
     })
 
     .controller('MailGapCtrl', function ($scope,$ionicPopup,Mailgap,$rootScope) {
