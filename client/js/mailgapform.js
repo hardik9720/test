@@ -52,15 +52,19 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
         
         $scope.download=function(){
     		console.log('download method called');
-    		var doc = new jsPDF();
+    		//var doc = new jsPDF();
            
     		//alert('html is '+$('#form').html());
     		//doc.fromHTML(document.getElementById("form").innerHtml, 15, 15, {
     		 //doc.fromHTML($('#form').html(), 15, 15, {
-    		 doc.addHTML($('#form').html(),function() {
-                'width': 170
+    // 		 doc.addHTML($('#form').html(),function() {
+    //             'width': 170
+    //         });
+    //         doc.save('sample-file.pdf');
+            var pdf = new jsPDF('p','pt','a4');
+                pdf.addHTML($('#form').html(),function() {
+                pdf.save('web.pdf');
             });
-            doc.save('sample-file.pdf');
     	}
     })
 
