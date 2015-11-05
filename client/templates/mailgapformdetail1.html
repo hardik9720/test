@@ -1,0 +1,35 @@
+<ion-view title="MailGapp Form Detail"  class="card-bg">
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+<div ng-if="mailgap.id">
+    <ion-content has-header="true" padding="true">
+		
+		
+        
+        <table style="width:100%">
+		  <tr>
+		    <th>Date</th>
+		    <th>Name</th>
+		  </tr>
+		  <tr>
+		    <td><p>{{mailgap.mg_date__c}}</p> </td>
+		    <td><p>{{mailgap.name}}</p></td>
+		    
+		  </tr>
+		</table>
+        
+        
+        
+    </ion-content>
+    
+    </div>
+    
+    <div ng-if="mailgap.id == ''">
+	<ion-content has-header="true" padding="true">
+    	<h2>No Form data found</h2>
+	</ion-content>
+</div>
+
+</ion-view>
