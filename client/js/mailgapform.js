@@ -79,7 +79,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
         });
         	
     	var doc = new jsPDF();
-        doc.fromHTML($('.form').html(), 15, 15, {
+        doc.fromHTML($('#form').html(), 15, 15, {
             'width': 170
         });
         doc.save('mailgapp.pdf');
