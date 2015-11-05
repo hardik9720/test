@@ -50,12 +50,12 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             console.log('the mailgapp data is'+$scope.mailgap+" "+mailgapformdata+" "+$scope.mailgap.id);
         });
         
+        var 
+		form = document.getElementById('form'),
+		cache_width = form.width(),
+		a4  =[ 595.28,  841.89];  // for a4 size paper width and height
         $scope.download=function(){
     		console.log('download method called');
-    		var 
-    		form = document.getElementById('form'),
-    		cache_width = form.width(),
-    		a4  =[ 595.28,  841.89];  // for a4 size paper width and height
     		createPDF();
     	}
     	
