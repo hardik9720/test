@@ -77,7 +77,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     		cache_width = form.width(),
     		a4  =[ 595.28,  841.89];  // for a4 size paper width and height
     		$('form').scrollTop(0);
-    		console.log('download method called');
+    		
     		createPDF();
     		
     		//create pdf
@@ -90,12 +90,13 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     		          format:'a4'
     		        });     
     		        doc.addImage(img, 'JPEG', 20, 20);
-    		        doc.save('techumber-html-to-pdf.pdf');
+    		        doc.save('mailgap.pdf');
+    		        console.log('download method called');
     		        form.width(cache_width);
     			});
     		}
 
-    		// create canvas object
+    		// create canvas objec
     		function getCanvas(){
     			form.width((a4[0]*1.33333) -80).css('max-width','none');
     			return html2canvas(form,{
