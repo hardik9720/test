@@ -24,6 +24,17 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             			
             	}
             })
+            
+            .state('app.mailgapformdownload',{
+            	url:'/mailgapfordownload',
+            	views:{
+            		'menuContent':{
+            			templateUrl:"templates/mailgapformdetail1.html",
+            			controller:"MailGapFormDownload"
+            		}
+            			
+            	}
+            })
 
     })
 
@@ -50,24 +61,36 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             console.log('the mailgapp data is'+$scope.mailgap+" "+mailgapformdata+" "+$scope.mailgap.id);
         });
         	
-        $scope.download=function(){
+    //     $scope.download=function(){
     		
+    // 	var doc = new jsPDF();
+    //     doc.fromHTML($('.form').html(), 15, 15, {
+    //         'width': 170
+    //     });
+    //     doc.save('mailgapp.pdf');
+    		    
+    // 	}
+    })
+    
+    .controller('MailGapFormDownload',function($scope,$ionicPopup,Mailgap,User,$rootScope){
+    	Mailgap.get().success(function(mailgapformdata) {
+            $scope.mailgap = mailgapformdata[0];
+            console.log('the mailgapp data is'+$scope.mailgap+" "+mailgapformdata+" "+$scope.mailgap.id);
+        });
+        	
     	var doc = new jsPDF();
         doc.fromHTML($('.form').html(), 15, 15, {
             'width': 170
         });
         doc.save('mailgapp.pdf');
-    		    
-    	}
+        console.log('file downloading');
+		$state.go("app.mailgapformdetail");			
+
     })
+
 
     .controller('MailGapCtrl', function ($scope,$ionicPopup,Mailgap,$rootScope) {
           $scope.mailgapform = {};
-
-        // Mailgap.get($rootScope.user).success(function(mailgapformdata) {
-        //       $scope.mailgapform = mailgapformdata;
-        //       console.log('the mailgapp data is'+$scope.mailgapform);
-        //   });
 
         $scope.mailgapformclick = function() {
                Mailgap.mailgapsubmit($scope.mailgapform)
@@ -83,44 +106,3 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
 
     });
 
-//    .controller('ProductDetailCtrl', function ($scope, $rootScope, $stateParams, $ionicPopup, Product, OpenFB, WishListItem, Activity, Status) {
-//
-//        Product.get($stateParams.productId).success(function(product) {
-//            $scope.product = product;
-//        });
-//
-//        $scope.shareOnFacebook = function () {
-//            Status.show('Shared on Facebook!');
-//            Activity.create({type: "Shared on Facebook", points: 1000, productId: $scope.product.sfid, name: $scope.product.name, image: $scope.product.image})
-//                .success(function(status) {
-//                    Status.checkStatus(status);
-//                });
-//        };
-//
-//        $scope.shareOnTwitter = function () {
-//            Status.show('Shared on Twitter!');
-//            Activity.create({type: "Shared on Twitter", points: 1000, productId: $scope.product.sfid, name: $scope.product.name, image: $scope.product.image})
-//                .success(function(status) {
-//                    Status.checkStatus(status);
-//                });
-//        };
-//
-//        $scope.shareOnGoogle = function () {
-//            Status.show('Shared on Google+!');
-//            Activity.create({type: "Shared on Google+", points: 1000, productId: $scope.product.sfid, name: $scope.product.name, image: $scope.product.image})
-//                .success(function(status) {
-//                    Status.checkStatus(status);
-//                });
-//        };
-//
-//        $scope.saveToWishList = function () {
-//            WishListItem.create({productId: $scope.product.id}).success(function(status) {
-//                Status.show('Added to your wish list!');
-//                Activity.create({type: "Added to Wish List", points: 1000, productId: $scope.product.sfid, name: $scope.product.name, image: $scope.product.image})
-//                    .success(function(status) {
-//                        Status.checkStatus(status);
-//                    });
-//            });
-//        };
-//
-//    });
