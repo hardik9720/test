@@ -50,39 +50,13 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             console.log('the mailgapp data is'+$scope.mailgap+" "+mailgapformdata+" "+$scope.mailgap.id);
         });
         
-        var 
-		form = document.getElementById("form"),
-		cache_width = form.width(),
-		a4  =[ 595.28,  841.89];  // for a4 size paper width and height
         $scope.download=function(){
     		console.log('download method called');
-    		createPDF();
-    	}
-    	
-    	//create pdf
-    	function createPDF(){
-    		console.log('create PDF called');
-    		getCanvas().then(function(canvas){
-    			var 
-    			img = canvas.toDataURL("image/png"),
-    			doc = new jsPDF({
-    	          unit:'px', 
-    	          format:'a4'
-    	        });     
-    	        doc.addImage(img, 'JPEG', 20, 20);
-    	        doc.save('Mailgappform.pdf');
-    	        form.width(cache_width);
-    		});
-    	}
-
-    	// create canvas object
-    	function getCanvas(){
-    		console.log('canvas method called');
-    		form.width((a4[0]*1.33333) -80).css('max-width','none');
-    		return html2canvas(form,{
-    	    	imageTimeout:2000,
-    	    	removeContainer:true
-    	    });	
+    		var doc = new jsPDF();
+            doc.fromHTML($('#form').html(), 15, 15, {
+                'width': 170,'elementHandlers': specialElementHandlers
+            });
+            doc.save('sample-file.pdf');
     	}
     })
 
