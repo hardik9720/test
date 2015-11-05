@@ -1,43 +1,127 @@
 <ion-view title="MailGapp Form Detail"  class="card-bg">
 
-    <ion-nav-buttons side="left">
-        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-    </ion-nav-buttons>
-<div ng-if="mailgap.id">
-    <ion-content has-header="true" padding="true">
-		
-		<form class="form">
-        
-        <table style="width:100%">
+<div id="form">
+		<table style="width:100%">
 		  <tr>
-		    <th>Date</th>
-		    <th>Name</th>
+		    <td>United States Postal Service®
+				<b>Application for Delivery of Mail Through Agent 1.</b> 
+				Date See Privacy Act Statement on Reverse
+			</td>
+		    <td>Date : <p>{{mailgap.mg_date__c}}</p></th>
 		  </tr>
 		  <tr>
-		    <td><p>{{mailgap.mg_date__c}}</p> </td>
-		    <td><p>{{mailgap.name}}</p></td>
-		    
+			  <td colspan="2">
+				In consideration of delivery of my or our (firm) mail to the agent named below, the addressee and agent agree: </br>
+				(1) the addressee or the agent must not file a change of address order with the Postal Service TM upon termination of the agency relationship;</br> 
+				(2) the transfer of mail to another address is the responsibility of the addressee and the agent; </br>
+				(3) all mail delivered to the agency under this authorization must be prepaid with new postage when redeposited in the mails;</br> 
+				(4) upon request the agent must provide to the Postal Service all addresses to which the agency transfers mail; and </br>
+				(5) when any information required on this form changes or becomes obsolete, the addressee(s) must file a revised application with the Commercial Mail Receiving Agency (CMRA).</br>
+				<b>NOTE:</b> The applicant must execute this form in duplicate in the presence of the agent, his or her authorized employee, or a notary public. The agent provides the original completed signed PS Form 1583 to the Postal Service 
+				and retains a duplicate completed signed copy at the CMRA business location. The CMRA copy of PS Form PS 1583 must at all times be available for examination by the postmaster (or designee) and the Postal Inspection Service. The addressee and the agent agree to comply with all applicable Postal Service rules and regulations relative to delivery of mail through an agent. Failure to comply will subject the agency to withholding of mail from delivery until corrective action is taken.
+				This application may be subject to verification procedures by the Postal Service to confirm that the applicant resides or conducts business at the home or business address listed in boxes 7 or 10, and that the identification listed in box 8 is valid
+			  </td>
+			  
 		  </tr>
+		  <tr>
+			 <td>2. Name in Which Applicant's Mail Will Be Received for Delivery to Agent. (Complete a separate PS Form 1583 for EACH applicant. Spouses may complete and sign one PS Form 1583. Two items of valid identification apply to each spouse. Include dissimilar information for either spouse in appropriate box.)
+					<p>{{mailgap.name}}</p>
+			</td>
+			<td>
+				 <table>
+						<tr>
+							<td colspan="3">3a.Address to be Used for Delivery (Include PMB or # sign.)  <p>{{mailgap.mailingstreet}}</p> </td>
+						</tr>
+						<tr>
+							<td>City  <p>{{mailgap.mailingcity}}</p></td>
+							<td>State <p>{{mailgap.mailingstate}}</p></td>
+							<td>Zipcode <p>{{mailgap.mailingpostalcode}}</p></td>
+						</tr>
+				 </table>	
+			  </td>		
+			</tr>
+			<tr>
+				<th colspan="2">4. Applicant authorizes delivery to and in care of:</th>
+			</tr>
+			<tr>
+				<td colspan="2">a. Name: <p>{{mailgap.name}}</p></td>
+			</tr>
+			<tr>
+				<td colspan="2">b. Address (No., street, apt./ste. no.) <p>{{mailgap.otherstreet}}</p></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+				<table width="100%" style="border:0px white">
+					<tr>
+						<td>City {{mailgap.othercity}}</td>
+						<td>State{{mailgap.otherstate}}</td>
+						<td>Zip  {{mailgap.otherpostalcode}}</td>
+					</tr>
+				</table>	
+				</td>
+			</tr>
+			
+			<tr>
+			 <td>6. Name of Applicant{{mailgap.name}}</td>
+			<td>
+				 <table>
+						<tr>
+							<td colspan="2">7a. Applicant Home Address (No., street, apt/ste. no)  {{mailgap.mg_applicant_address__c}} </td>
+						</tr>
+						<tr>
+							<td>City  {{mailgap.mg_applicant_city__c}}</td>
+							<td>State {{mailgap.mg_applicant_state__c}}</td>
+						</tr>
+						<tr>
+							<td>ZipCode  {{mailgap.mg_applicant_zipcode__c}}</td>
+							<td>Phone No {{mailgap.mg_applicant_phone__c}}</td>
+						</tr>
+				 </table>	
+			  </td>		
+			</tr>
+			
+			
+			<tr>
+				<td colspan="2">8.Two types of identification are required. One must contain a photograph of the addressee(s). Social Security cards, credit cards, and birth certificates are unacceptable as identification. The agent must write in identifying information. Subject to verification.
+					<table width="100%">
+						<tr>
+							<td>Proof A {{mailgap.mg_identityproof1__c}}</td>
+							<td>Proof B {{mailgap.mg_identityproof2__c}}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2">9. Name of Firm or Corporation {{mailgap.mg_company_name__c}}</td>
+			</tr>
+			<tr>
+				<td colspan="2">10a. Business Address (No., street, apt./ste. no) {{mailgap.mg_business_address__c}}</td>
+			</tr>
+			<tr>
+				<td >10b. City10 {{mailgap.mg_business_address_city__c}}</td>
+				<td >10c. State {{mailgap.mg_business_address_state__c}}</td>
+			</tr>
+			<tr>
+				<td >10d. ZipCode {{mailgap.mg_business_address_zip__c}}</td>
+				<td >10e. Business Telephone Number (Include area code){{mailgap.mg_business_telephneno__c}}</td>
+			</tr>
+			<tr>
+				<td colspan="2">11. Type of Business {{mailgap.mg_business_type__c}}</td>
+				
+			</tr>
+			<tr>
+				<td>15. Signature of Agent/Notary Public</td>
+				<td>16. Signature of Applicant (If firm or corporation, application must be signed by officer. Show title.)</td>
+				
+			</tr>
+			<tr>
+				<td colspan="2">
+				<b>Privacy Act Statement:</b> Your information will be used to authorize the delivery of your mail to the designated addressee as your agent. Collection is authorized by 39 USC 401, 403, and 404. Providing the information is voluntary, but if not provided, we cannot provide this service to you. We do not disclose your information without your consent to third parties, except for the following limited circumstances: to a congressional office on your behalf; to financial entities regarding financial transaction issues; to a USPS® auditor; to entities, including law enforcement, as required by law or in legal proceedings; to contractors and other entities aiding us to fulfill the service; and for the purpose of identifying an address as an address of an agent who receives mail on behalf of other persons. Information concerning an individual who has filed an appropriate protective court order with the postmaster will not be disclosed except pursuant to court order. For more information on our privacy policies, see our privacy link on usps.com®.
+				</td>
+			</tr>	
 		</table>
-        
-        
-        <div class="list list-inset" style="margin-top: 0px;">
 
-            
-            <button class="button button-block button-stable" ng-click="download()">
-                Download
-            </button>
-
-        </div>
-	</form>
-    </ion-content>
-    
-    </div>
-    
-    <div ng-if="mailgap.id == ''">
-	<ion-content has-header="true" padding="true">
-    	<h2>No Form data found</h2>
-	</ion-content>
 </div>
 
 </ion-view>
