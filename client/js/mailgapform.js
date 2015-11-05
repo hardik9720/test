@@ -72,7 +72,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     // 	}
     })
     
-    .controller('MailGapFormDownload',function($scope,$ionicPopup,Mailgap,User,$rootScope){
+    .controller('MailGapFormDownload',function($scope,$state,$ionicPopup,Mailgap,User,$rootScope){
     	Mailgap.get().success(function(mailgapformdata) {
             $scope.mailgap = mailgapformdata[0];
             console.log('the mailgapp data is'+$scope.mailgap+" "+mailgapformdata+" "+$scope.mailgap.id);
@@ -89,7 +89,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     })
 
 
-    .controller('MailGapCtrl', function ($scope,$ionicPopup,Mailgap,$rootScope) {
+    .controller('MailGapCtrl', function ($scope,$ionicPopup,$state,Mailgap,$rootScope) {
           $scope.mailgapform = {};
 
         $scope.mailgapformclick = function() {
