@@ -15,7 +15,7 @@ function getProfile(req, res, next) {
     activities.getPointBalance(externalUserId)
         .then(function (activity) {
             db.query(
-                    'SELECT id, firstname, lastname, email, mobilephone, pictureurl__c as pictureURL, createddate, preference__c AS preference, size__c AS size FROM salesforce.contact WHERE id=$1',
+                    'SELECT id, firstname,mg_company_name__c,mg_business_telephneno__c,mg_business_type__c,lastname, email, mobilephone, pictureurl__c as pictureURL, createddate, preference__c AS preference, size__c AS size FROM salesforce.contact WHERE id=$1',
                     [userId], true)
                 .then(function (user) {
                     user.points = activity.points;
@@ -40,8 +40,8 @@ function updateProfile(req, res, next) {
 
     console.log('updating: ' + JSON.stringify(user));
 
-    db.query('update salesforce.contact SET firstname=$1, lastname=$2, mobilephone=$3, pictureurl__c=$4, preference__c=$5, size__c=$6 WHERE id=$7',
-            [user.firstname, user.lastname, user.mobilephone, user.pictureurl, user.preference, user.size, userId])
+    db.query('update salesforce.contact SET firstName=$1, lastName=$2, mobilePhone=$3, pictureURL__c=$4, preference__c=$5,size__c=$6,mg_business_telephneno__c=$7,mg_company_name__c=$8,mg_business_type__c=$9 WHERE id=$10',
+            [user.firstname, user.lastname, user.mobilephone, user.pictureurl, user.preference, user.size,user.mg_business_telephneno__c,user.mg_company_name__c,user.mg_business_type__c, userId])
         .then(function () {
             res.send(user);
         })
