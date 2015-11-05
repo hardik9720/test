@@ -14,6 +14,9 @@
                 <img class="avatar" ng-src="{{user.pictureurl || 'img/avatar.jpg'}}" ng-click="popupDialog()"/>
                 <h2>{{user.firstname}} {{user.lastname}}</h2>
                 <h3>Member since {{user.createddate | date:'longDate'}}</h3>
+                <h3>Company name {{user.mg_company_name__c}}</h3>
+                <h3>Office phone {{user.mg_business_telephneno__c}}</h3>
+                <h3>Business type {{user.mg_business_type__c}}</h3>
             </div>
 
             <div style="padding: 8px 16px;" class="status{{user.status}}">
@@ -21,7 +24,7 @@
                 <div class="profile-status">
                     <div>
                         <div class="profile-level">{{statusLabel}} Member</div>
-                        <div class="profile-points"><img ng-src="css/img/icon-points{{user.status}}.svg" style="height: 1.2rem;width: 1.2rem;"/> {{user.points || 0}} Nibs</div>
+                        
                         <p>{{statusDescription}}</p>
                     </div>
                     <div class="icon-status icon-status{{user.status}}"></div>
@@ -29,16 +32,16 @@
 
                 <div class="status-bar">
                     <div class="forastero">
-                        <p>Forastero</p>
-                        <p>0-5000 Nibs</p>
+                        <p>Mobile Office</p>
+                        
                     </div>
                     <div class="trinitario">
-                        <p>Trinitario</p>
-                        <p>&gt;5000 Nibs</p>
+                        <p>Virtual Office</p>
+                        
                     </div>
                     <div class="Criollo">
-                        <p>Criollo</p>
-                        <p>&gt;10000 Nibs</p>
+                        <p>Serviced Office</p>
+                        
                     </div>
                 </div>
 
