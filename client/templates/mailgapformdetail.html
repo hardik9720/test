@@ -1,24 +1,214 @@
-<ion-view title="MailGapp Form Detail" hide-back-button="true" class="card-bg">
+<ion-view title="MailGapp Form Detail 2" hide-back-button="true" class="card-bg">
 
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
 <div ng-if="mailgap.id">
     <ion-content has-header="true" padding="true">
-    	Form data found
+
+        <div class="list list-inset" style="margin-top: 0px;">
+
+            <label class="item item-input">
+            	<span class="input-label">Date</span>
+                {{mailgap.mg_date__c}}
+            </label>
+            <label class="item item-input">
+            	<span class="input-label">Name</span>
+                {{mailgap.name}}
+            </label>
+
+
+            <br/>
+            <fieldset>
+                <legend class="item item-input">Delivery Address</legend>
+                <div class=list>
+	
+                    <div class="item item-body">
+                        <span class="input-label">Delivery Address</span>
+                        {{mailgap.mailingstreet}}
+                    </div>
+                    <label class="item item-input">
+                    	<span class="input-label">Delivery Address City</span>
+                        {{mailgap.mailingcity}}
+                    </label>
+                    <label class="item item-input">
+                    <span class="input-label">Delivery Address State</span>
+                        {{mailgap.mailingstate}}
+                    </label>
+
+                    <label class="item item-input">
+                    <span class="input-label">Delivery Address ZipCode</span>
+                        {{mailgap.mailingpostalcode}}
+                    </label>
+                </div>
+            </fieldset>
+
+            <br/>
+            <fieldset>
+                <legend class="item item-input">Applicant Authorizes Delivery</legend>
+                <div class=list>
+	                <label class="item item-input">
+                    	<span class="input-label">Name</span>
+                    	{{mailgap.mg_name__c}}
+                    </label>
+                    
+                    <label class="item item-input">
+                    	<span class="input-label">Address</span>
+                    	{{mailgap.otherstreet}}
+                    </label>
+
+          	        <label class="item item-input">
+        	            <span class="input-label">City</span>
+    	                {{mailgap.othercity}}
+					</label>            
+
+                    <label class="item item-input">
+	                    <span class="input-label">State</span>
+	                    {{mailgap.otherstate}}
+                    </label>
+
+                    <label class="item item-input">
+	                    <span class="input-label">ZipCode</span>
+	                    {{mailgap.otherpostalcode}}
+                    </label>
+
+                    
+                </div>
+            </fieldset>
+            <br/>
+            <label class="item item-input">
+                <span class="input-label">Applicant Name</span>
+	                    {{mailgap.name}}
+            </label>
+            <br/>
+
+            <fieldset>
+                <legend class="item item-input">Applicant Home Address</legend>
+                <div class=list>
+                	<label class="item item-input">
+                		<span class="input-label">Address</span>
+	                    {{mailgap.mg_applicant_address__c}}
+                    </label>
+                    <div class="item item-body">
+                    	<span class="input-label">City</span>
+	                    {{mailgap.mg_applicant_city__c}}
+                    
+                    </div>
+
+                    <label class="item item-input">
+                    	<span class="input-label">State</span>
+	                    {{mailgap.mg_applicant_state__c}}
+                        
+                    </label>
+
+                    <label class="item item-input">
+                    	<span class="input-label">ZipCode</span>
+	                    {{mailgap.mg_applicant_zipcode__c}}
+                        
+                    </label>
+
+                    <label class="item item-input">
+                    	<span class="input-label">Telephone No</span>
+	                    {{mailgap.mg_applicant_phone__c}}
+                        
+                    </label>
+                </div>
+            </fieldset>
+            <br/>
+            <fieldset>
+                <legend class="item item-input">Identification</legend>
+                <p style="color:red;">Two type of identification are required.One must contain a
+                    photograph of the addressee(s).
+                    Social Security Cards, and birth certificates are unacceptable as
+                    identification.
+                    The agent must write in identifying information. Subject to verification
+                </p>
+
+                <div class=list>
+                    <label class="item item-input">
+                    <span class="input-label">Proof A</span>
+	                    {{mailgap.mg_identityproof1__c}}
+                        
+                    </label>
+                    <label class="item item-input">
+                    <span class="input-label">Proof B</span>
+	                    {{mailgap.mg_identityproof2__c}}
+                        
+                    </label>
+                </div>
+                <p style="color:red;">
+                    Acceptable identification includes:valid driving license or state non-driver's
+                    Identification card,passport,government, university or recognized corporate Identification Card.
+                </p>
+
+            </fieldset>
+
+            <br/>
+            <fieldset>
+                <legend class="item item-input">Corporation/Firm</legend>
+                <div class=list>
+                    <label class="item item-input">
+                    <span class="input-label">Corporation/Firm Name</span>
+	                    {{mailgap.mg_company_name__c}}
+                        
+                    </label>
+
+                    <div class="item item-body">
+                    <span class="input-label">Business Address</span>
+	                    {{mailgap.mg_business_address__c}}
+                        <textarea placeholder="Business Address" rows="5" ng-model="mailgapform.businessaddress"></textarea>
+                    </div>
+                    <label class="item item-input">
+                    <span class="input-label">Business City</span>
+	                    {{mailgap.mg_business_address_city__c}}
+                        <input type="text" placeholder="City" ng-model="mailgapform.businesscity">
+                    </label>
+                    <label class="item item-input">
+                    <span class="input-label">Business State</span>
+	                    {{mailgap.mg_business_address_state__c}}
+                        <input type="text" placeholder="State" ng-model="mailgapform.businessstate">
+                    </label>
+                    <label class="item item-input">
+                    <span class="input-label">Business Zip</span>
+	                    {{mailgap.mg_business_address_zip__c}}
+                        <input type="text" placeholder="ZipCode" ng-model="mailgapform.businesszipcode">
+                    </label>
+                    <label class="item item-input">
+                    <span class="input-label">Business Telephone</span>
+	                    {{mailgap.mg_business_telephneno__c}}
+                        <input type="text" placeholder="Business Telephone No" ng-model="mailgapform.businesstelephone">
+                    </label>
+                    <label class="item item-input">
+                    <span class="input-label">Business Type]</span>
+	                    {{mailgap.mg_business_type__c}}
+                        <input type="text" placeholder="Type of Business" ng-model="mailgapform.businesstype">
+                    </label>
+                </div>
+            </fieldset>
+
+            <br/>
+
+            <div class="list">
+                <div class="item item-body">
+                    <textarea placeholder="Signature of Agent/Notary Public" rows="3"></textarea>
+                </div>
+                <div class="item item-body">
+                    <p style="color:red">If Firm/Corporation application must be signed by
+                        officer</p>
+                    <textarea placeholder="Signature of Applicant" rows="3"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+    </ion-content>
+    
+    </div>
+    
+    <div ng-if="mailgap.id == ''">
+	<ion-content has-header="true" padding="true">
+    	<h2>No Form data found</h2>
 	</ion-content>
 </div>
 
-<div ng-if="mailgap.id == ''">
-	<ion-content has-header="true" padding="true">
-    	No Form data found
-	</ion-content>
-</div>
-
-<div>
-	<ion-content has-header="true" padding="true">
-	{{mailgap.id}}
-		Error in gettnig data
-	</ion-content>
-</div>
 </ion-view>
