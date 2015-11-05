@@ -54,10 +54,10 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     		console.log('download method called');
     		var doc = new jsPDF();
            
-    		alert('html is '+$('#form').html());
+    		//alert('html is '+$('#form').html());
     		//doc.fromHTML(document.getElementById("form").innerHtml, 15, 15, {
     		 //doc.fromHTML($('#form').html(), 15, 15, {
-    		 doc.addHTML($('#form').html(), 15, 15, {
+    		 doc.addHTML($('#form').html(),function() {
                 'width': 170
             });
             doc.save('sample-file.pdf');
