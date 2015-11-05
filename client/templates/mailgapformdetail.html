@@ -10,11 +10,11 @@
 
             <label class="item item-input">
             	<span class="input-label">Date</span>
-                {{mailgap.mg_date__c}}
+               <p>{{mailgap.mg_date__c}}</p> 
             </label>
             <label class="item item-input">
             	<span class="input-label">Name</span>
-                {{mailgap.name}}
+                <p>{{mailgap.name}}</p>
             </label>
 
 
@@ -25,20 +25,20 @@
 	
                     <div class="item item-body">
                         <span class="input-label">Delivery Address</span>
-                        {{mailgap.mailingstreet}}
+                       <p>{{mailgap.mailingstreet}}</p> 
                     </div>
                     <label class="item item-input">
                     	<span class="input-label">Delivery Address City</span>
-                        {{mailgap.mailingcity}}
+                        <p>{{mailgap.mailingcity}}</p>
                     </label>
                     <label class="item item-input">
                     <span class="input-label">Delivery Address State</span>
-                        {{mailgap.mailingstate}}
+                        <p>{{mailgap.mailingstate}}</p>
                     </label>
 
                     <label class="item item-input">
                     <span class="input-label">Delivery Address ZipCode</span>
-                        {{mailgap.mailingpostalcode}}
+                        <p>{{mailgap.mailingpostalcode}}</p>
                     </label>
                 </div>
             </fieldset>
@@ -49,27 +49,32 @@
                 <div class=list>
 	                <label class="item item-input">
                     	<span class="input-label">Name</span>
-                    	{{mailgap.mg_name__c}}
+                    	<p>{{mailgap.mg_name__c}}</p>
+                    	
                     </label>
                     
                     <label class="item item-input">
                     	<span class="input-label">Address</span>
-                    	{{mailgap.otherstreet}}
+                    	<p>{{mailgap.otherstreet}}</p>
+                    	
                     </label>
 
           	        <label class="item item-input">
         	            <span class="input-label">City</span>
-    	                {{mailgap.othercity}}
+        	            <p>{{mailgap.othercity}}</p>
+    	                
 					</label>            
 
                     <label class="item item-input">
 	                    <span class="input-label">State</span>
-	                    {{mailgap.otherstate}}
+	                    <p>{{mailgap.otherstate}}</p>
+	                    
                     </label>
 
                     <label class="item item-input">
 	                    <span class="input-label">ZipCode</span>
-	                    {{mailgap.otherpostalcode}}
+	                    <p>{{mailgap.otherpostalcode}}</p>
+	                    
                     </label>
 
                     
@@ -78,7 +83,8 @@
             <br/>
             <label class="item item-input">
                 <span class="input-label">Applicant Name</span>
-	                    {{mailgap.name}}
+                 <p>{{mailgap.name}}</p>
+	                    
             </label>
             <br/>
 
@@ -87,29 +93,34 @@
                 <div class=list>
                 	<label class="item item-input">
                 		<span class="input-label">Address</span>
-	                    {{mailgap.mg_applicant_address__c}}
+                		 <p>{{mailgap.mg_applicant_address__c}}</p>
+	                    
                     </label>
                     <div class="item item-body">
                     	<span class="input-label">City</span>
-	                    {{mailgap.mg_applicant_city__c}}
+                    	 <p> {{mailgap.mg_applicant_city__c}}</p>
+	                   
                     
                     </div>
 
                     <label class="item item-input">
                     	<span class="input-label">State</span>
-	                    {{mailgap.mg_applicant_state__c}}
+                    	 <p> {{mailgap.mg_applicant_state__c}}</p>
+	                   
                         
                     </label>
 
                     <label class="item item-input">
                     	<span class="input-label">ZipCode</span>
-	                    {{mailgap.mg_applicant_zipcode__c}}
+                    	 <p>{{mailgap.mg_applicant_zipcode__c}}</p>
+	                    
                         
                     </label>
 
                     <label class="item item-input">
                     	<span class="input-label">Telephone No</span>
-	                    {{mailgap.mg_applicant_phone__c}}
+                    	 <p>{{mailgap.mg_applicant_phone__c}}</p>
+	                    
                         
                     </label>
                 </div>
@@ -127,12 +138,14 @@
                 <div class=list>
                     <label class="item item-input">
                     <span class="input-label">Proof A</span>
-	                    {{mailgap.mg_identityproof1__c}}
+                     <p>{{mailgap.mg_identityproof1__c}}</p>
+	                    
                         
                     </label>
                     <label class="item item-input">
                     <span class="input-label">Proof B</span>
-	                    {{mailgap.mg_identityproof2__c}}
+                     <p>{{mailgap.mg_identityproof2__c}}</p>
+	                    
                         
                     </label>
                 </div>
@@ -149,39 +162,46 @@
                 <div class=list>
                     <label class="item item-input">
                     <span class="input-label">Corporation/Firm Name</span>
-	                    {{mailgap.mg_company_name__c}}
+                     <p>{{mailgap.mg_company_name__c}}</p>
+	                    
                         
                     </label>
 
                     <div class="item item-body">
                     <span class="input-label">Business Address</span>
-	                    {{mailgap.mg_business_address__c}}
-                        <textarea placeholder="Business Address" rows="5" ng-model="mailgapform.businessaddress"></textarea>
+                     <p>{{mailgap.mg_business_address__c}}</p>
+	                    
+                        
                     </div>
                     <label class="item item-input">
                     <span class="input-label">Business City</span>
-	                    {{mailgap.mg_business_address_city__c}}
-                        <input type="text" placeholder="City" ng-model="mailgapform.businesscity">
+                     <p>{{mailgap.mg_business_address_city__c}}</p>
+	                    
+                        
                     </label>
                     <label class="item item-input">
                     <span class="input-label">Business State</span>
-	                    {{mailgap.mg_business_address_state__c}}
-                        <input type="text" placeholder="State" ng-model="mailgapform.businessstate">
+                     <p>{{mailgap.mg_business_address_state__c}}</p>
+	                    
+                        
                     </label>
                     <label class="item item-input">
                     <span class="input-label">Business Zip</span>
-	                    {{mailgap.mg_business_address_zip__c}}
-                        <input type="text" placeholder="ZipCode" ng-model="mailgapform.businesszipcode">
+                     <p>{{mailgap.mg_business_address_zip__c}}</p>
+	                    
+                        
                     </label>
                     <label class="item item-input">
                     <span class="input-label">Business Telephone</span>
-	                    {{mailgap.mg_business_telephneno__c}}
-                        <input type="text" placeholder="Business Telephone No" ng-model="mailgapform.businesstelephone">
+                     <p>{{mailgap.mg_business_telephneno__c}}</p>
+	                    
+                        
                     </label>
                     <label class="item item-input">
                     <span class="input-label">Business Type]</span>
-	                    {{mailgap.mg_business_type__c}}
-                        <input type="text" placeholder="Type of Business" ng-model="mailgapform.businesstype">
+                     <p>{{mailgap.mg_business_type__c}}</p>
+	                    
+                        
                     </label>
                 </div>
             </fieldset>
