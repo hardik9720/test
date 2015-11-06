@@ -92,7 +92,8 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     		    }); 
 
     		  alert('in createdpdf getcanvas'+x);
-    		  var img = x.toDataURL("image/png"),
+    		  console.log('in createdpdf getcanvas'+x);
+    		  var img = x[0].toDataURL("image/png"),
     		  doc = new jsPDF({
     		          unit:'px', 
     		          format:'a4'
