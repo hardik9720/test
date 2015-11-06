@@ -18,7 +18,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             	url:'/mailgapformdetail',
             	views:{
             		'menuContent':{
-            			templateUrl:"templates/mailgapformdetail1.html",
+            			templateUrl:"templates/mailgapformdetail.html",
             			controller:"MailGapDetailCtrl"
             		}
             			
@@ -61,15 +61,15 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             console.log('the mailgapp data is'+$scope.mailgap+" "+mailgapformdata+" "+$scope.mailgap.id);
         });
         	
-         $scope.download=function(){
+//         $scope.download=function(){
     		
-     	var doc = new jsPDF();
-         doc.fromHTML($('#form').html(), 20, 20, {
-             'width': 500
-         });
-         doc.save('mailgapp.pdf');
-    		    
-     	}
+//     	var doc = new jsPDF();
+//         doc.fromHTML($('#form').html(), 20, 20, {
+//             'width': 500
+//         });
+//         doc.save('mailgapp.pdf');
+//    		    
+//     	}
     })
     
     .controller('MailGapFormDownload',function($scope,$state,$ionicPopup,Mailgap,User,$rootScope){
@@ -77,14 +77,41 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
             $scope.mailgap = mailgapformdata[0];
             console.log('the mailgapp data is'+$scope.mailgap+" "+mailgapformdata+" "+$scope.mailgap.id);
         });
-        	
-    	var doc = new jsPDF();
-        doc.fromHTML($('#form').html(), 15, 15, {
-            'width': 522
-        });
-        doc.save('mailgapp.pdf');
-        console.log('file downloading');
-		$state.go("app.mailgapformdetail");			
+        
+    	var 
+    	 form = $('.form'),
+    	 cache_width = form.width(),
+    	 a4  =[ 595.28,  841.89];  // for a4 size paper width and height
+    	function createPDF(){
+    		alert('in createpdf');
+    		 getCanvas().then(function(canvas){
+    		  var 
+    		  img = canvas.toDataURL("image/png"),
+    		  doc = new jsPDF({
+    		          unit:'px', 
+    		          format:'a4'
+    		        });     
+    		        doc.addImage(img, 'JPEG', 20, 20);
+    		        doc.save('techumber-html-to-pdf.pdf');
+    		        form.width(cache_width);
+    		 });
+    	}
+    		 
+    		// create canvas object
+   		function getCanvas(){
+   			alert('in getcanvas');
+    		 form.width((a4[0]*1.33333) -80).css('max-width','none');
+    		 return html2canvas(form,{
+    		     imageTimeout:2000,
+    		     removeContainer:true
+    		    }); 
+   		}
+    	
+    	$scope.download=function(){
+    		createPDF();
+    		alert('file downloaded');
+    	}
+    			
 
     })
 
