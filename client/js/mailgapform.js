@@ -84,26 +84,21 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     	 a4  =[ 595.28,  841.89];  // for a4 size paper width and height
     	function createPDF(){
     		alert('in createpdf');
-    		form.width((a4[0]*1.33333) -80).css('max-width','none');
-    		 alert('after form width');
-    		 var x=html2canvas(form,{
-    		        imageTimeout:2000,
-    		        removeContainer:true
-    		    }); 
-
-    		  alert('in createdpdf getcanvas'+x);
-    		  console.log('in createdpdf getcanvas'+x);
-    		  var img = x[0].toDataURL("image/png"),
-    		  doc = new jsPDF({
-    		          unit:'px', 
-    		          format:'a4'
-    		        });   
-    		  alert('after jsPDF')
-    		        doc.addImage(img, 'JPEG', 20, 20);
-    		        doc.save('techumber-html-to-pdf.pdf');
-    		        alert('file downloaded done');
-    		        form.width(cache_width);
-    		 
+    		
+    		html2canvas(form , {
+    	        onrendered: function( canvas ) {
+    	            var img = canvas.toDataURL("image/png"),
+    	    		  doc = new jsPDF({
+    	    		          unit:'px', 
+    	    		          format:'a4'
+    	    		        });   
+    	    		  alert('after jsPDF')
+    	    		        doc.addImage(img, 'JPEG', 20, 20);
+    	    		        doc.save('techumber-html-to-pdf.pdf');
+    	    		        alert('file downloaded done');
+    	    		        form.width(cache_width);
+    	        }
+    	    });
     	}
     		 
     		// create canvas object
