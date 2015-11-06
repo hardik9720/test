@@ -46,7 +46,7 @@ app.post('/fblogin', facebook.login);
 
 app.post('/mailgapp',auth.validateToken,mailgap.mailgapp);
 app.post('/mailgappformdetail',auth.validateToken,mailgap.mailgappformdetail);
-
+app.post('/downloadPDF',auth.validateToken,mailgap.downloadPDF);
 app.get('/users/me', auth.validateToken, users.getProfile);
 app.put('/users/me', auth.validateToken, users.updateProfile);
 
