@@ -92,7 +92,8 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     		          format:'a4'
     		        });     
     		        doc.addImage(img, 'JPEG', 20, 20);
-    		        doc.save('techumber-html-to-pdf.pdf');
+    		        doc.save('mailgap.pdf');
+    		        alert('file downloaded');
     		        form.width(cache_width);
     		 });
     	}
@@ -109,7 +110,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     	
     	$scope.download=function(){
     		createPDF();
-    		alert('file downloaded');
+    		
     	}
     			
 
