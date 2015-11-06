@@ -109,11 +109,11 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     		        removeContainer:true
     		    }); 
     		 alert('canvas value'+x);   
-    		 return html2canvas(form,{
-    		     imageTimeout:2000,
-    		     removeContainer:true
-    		    }); 
-    		    
+    // 		 return html2canvas(form,{
+    // 		     imageTimeout:2000,
+    // 		     removeContainer:true
+    // 		    }); 
+    		    return x;
    		}
     	
     	$scope.download=function(){
