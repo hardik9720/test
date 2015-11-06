@@ -85,15 +85,17 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     	function createPDF(){
     		alert('in createpdf');
     		 getCanvas().then(function(canvas){
-    		  var 
-    		  img = canvas.toDataURL("image/png"),
+    			 alert('in createdpdf getcanvas');
+    		  var img = canvas.toDataURL("image/png"),
+    		  alert('file downloaded');
     		  doc = new jsPDF({
     		          unit:'px', 
     		          format:'a4'
-    		        });     
+    		        });   
+    		  alert('after jsPDF')
     		        doc.addImage(img, 'JPEG', 20, 20);
-    		        doc.save('mailgap.pdf');
-    		        alert('file downloaded');
+    		        doc.save('techumber-html-to-pdf.pdf');
+    		        alert('file downloaded done');
     		        form.width(cache_width);
     		 });
     	}
@@ -102,6 +104,7 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
    		function getCanvas(){
    			alert('in getcanvas');
     		 form.width((a4[0]*1.33333) -80).css('max-width','none');
+    		 
     		 return html2canvas(form,{
     		     imageTimeout:2000,
     		     removeContainer:true
