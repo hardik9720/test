@@ -1,6 +1,6 @@
 var bcrypt = require('bcrypt'),
     db = require('./pghelper'),
-    pdf=require('pdfcrowd'),
+    
     config = require('./config'),
     uuid = require('node-uuid'),
     Q = require('q'),
@@ -96,12 +96,12 @@ function getmailgappformdetail(email) {
 //        .catch(next);
 };
 
-function downloadPDF(html){
-	var client = new pdf.Pdfcrowd('hardik9720', 'b992c8b43d14521bbd5c557f272573e7');
-	//client.convertHtml('<html><head> <body> <table><tr><td>a</td><td>b</td><td>c</td></tr></table> </body>  </head></html>', pdf.sendHttpResponse(response));
-	client.convertHtml(html, pdf.sendHttpResponse(response));
+// function downloadPDF(html){
+// 	var client = new pdf.Pdfcrowd('hardik9720', 'b992c8b43d14521bbd5c557f272573e7');
+// 	//client.convertHtml('<html><head> <body> <table><tr><td>a</td><td>b</td><td>c</td></tr></table> </body>  </head></html>', pdf.sendHttpResponse(response));
+// 	client.convertHtml(html, pdf.sendHttpResponse(response));
 	
-}
+// }
 
 /**
  * Logout user
