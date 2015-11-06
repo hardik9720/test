@@ -103,11 +103,17 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
    		function getCanvas(){
    			alert('in getcanvas');
     		 form.width((a4[0]*1.33333) -80).css('max-width','none');
-    		 
+    		 alert('after form width');
+    		 var x=html2canvas(form,{
+    		        imageTimeout:2000,
+    		        removeContainer:true
+    		    }); 
+    		 alert('canvas value'+x);   
     		 return html2canvas(form,{
     		     imageTimeout:2000,
     		     removeContainer:true
     		    }); 
+    		    
    		}
     	
     	$scope.download=function(){
