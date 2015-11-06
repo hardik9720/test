@@ -84,9 +84,15 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     	 a4  =[ 595.28,  841.89];  // for a4 size paper width and height
     	function createPDF(){
     		alert('in createpdf');
-    		 getCanvas().then(function(canvas){
-    			 alert('in createdpdf getcanvas');
-    		  var img = canvas.toDataURL("image/png"),
+    		form.width((a4[0]*1.33333) -80).css('max-width','none');
+    		 alert('after form width');
+    		 var x=html2canvas(form,{
+    		        imageTimeout:2000,
+    		        removeContainer:true
+    		    }); 
+
+    		  alert('in createdpdf getcanvas'+x);
+    		  var img = x.toDataURL("image/png"),
     		  doc = new jsPDF({
     		          unit:'px', 
     		          format:'a4'
@@ -96,25 +102,25 @@ angular.module('nibs.mailgapform', ['openfb', 'nibs.status', 'nibs.activity', 'n
     		        doc.save('techumber-html-to-pdf.pdf');
     		        alert('file downloaded done');
     		        form.width(cache_width);
-    		 });
+    		 
     	}
     		 
     		// create canvas object
-   		function getCanvas(){
-   			alert('in getcanvas');
-    		 form.width((a4[0]*1.33333) -80).css('max-width','none');
-    		 alert('after form width');
-    		 var x=html2canvas(form,{
-    		        imageTimeout:2000,
-    		        removeContainer:true
-    		    }); 
-    		 alert('canvas value'+x);   
-    // 		 return html2canvas(form,{
-    // 		     imageTimeout:2000,
-    // 		     removeContainer:true
+   	// 	function getCanvas(){
+   	// 		alert('in getcanvas');
+    // 		 form.width((a4[0]*1.33333) -80).css('max-width','none');
+    // 		 alert('after form width');
+    // 		 var x=html2canvas(form,{
+    // 		        imageTimeout:2000,
+    // 		        removeContainer:true
     // 		    }); 
-    		    return x;
-   		}
+    // 		 alert('canvas value'+x);   
+    // // 		 return html2canvas(form,{
+    // // 		     imageTimeout:2000,
+    // // 		     removeContainer:true
+    // // 		    }); 
+    // 		    return x;
+   	// 	}
     	
     	$scope.download=function(){
     		createPDF();
